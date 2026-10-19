@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="PDF + Image Studio: merge, split, compress and convert PDFs; resize, crop, combine, watermark and convert images. Install this studio and process files on your device.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#f4f1eb">
+    <title>PDF + Image Studio - PDF and image tools | nithi.land</title>
+    <link rel="canonical" href="https://files.nithi.land/">
+    <link rel="manifest" href="/tools/filestudio/manifest.webmanifest">
+    <link rel="apple-touch-icon" href="/tools/filestudio/icons/apple-touch-icon.png?v=4">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="PDF + Image Studio">
+    <link rel="icon" href="/tools/filestudio/icons/icon.svg?v=4" type="image/svg+xml" sizes="any">
+    <link rel="stylesheet" href="/tools/filestudio/pdf-tool.css">
+  </head>
+  <body>
+    <div class="studio-shell">
+      <header class="studio-header">
+        <a class="studio-brand" href="https://nithi.land/" target="_blank" rel="noopener noreferrer" aria-label="Open nithi.land">
+          <img class="studio-brand__mark" src="/tools/filestudio/icons/icon.svg?v=4" alt="" width="48" height="48">
+          <span>PDF + Image Studio</span>
+          <span class="studio-brand__by">by nithi.land</span>
+        </a>
+        <div class="studio-header__actions">
+          <button class="header-button" type="button" data-open-files>Open files</button>
+          <button class="header-button header-button--install" type="button" data-install>Install app</button>
+        <div class="privacy-note">
+          <span class="privacy-note__dot" aria-hidden="true"></span>
+          Browser first · server when needed
+        </div>
+        </div>
+      </header>
+
+      <main class="studio-main">
+        <aside class="tool-rail" aria-label="File tasks">
+          <fieldset class="task-filters"><legend class="visually-hidden">Show tasks involving</legend>
+            <label><input type="checkbox" role="switch" data-task-filter="image" checked> Involves image</label>
+            <label><input type="checkbox" role="switch" data-task-filter="pdf" checked> Involves pdf</label>
+          </fieldset>
+          <p class="tool-rail__label">Choose a task</p>
+          <p class="filter-empty" data-filter-empty hidden>Turn on a filter to see tasks.</p>
+          <div class="tool-tabs" role="tablist" aria-orientation="vertical">
+            <button class="tool-tab is-active" type="button" role="tab" aria-selected="true" data-operation="merge-pdf">
+              <span class="tool-tab__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h9v12H5zM10 8h9v12h-9z"/></svg></span>
+              <span><strong>Merge PDFs</strong><small>Combine documents</small></span>
+            </button>
+            <button class="tool-tab" type="button" role="tab" aria-selected="false" data-operation="split">
+              <span class="tool-tab__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 3.5h11l3 3v14H5zM16 3.5v3h3M8 11h8M8 15h3M14 15h2"/></svg></span>
+              <span><strong>Split pages</strong><small>One file per page</small></span>
+            </button>
+            <button class="tool-tab" type="button" role="tab" aria-selected="false" data-operation="images-pdf">
+              <span class="tool-tab__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM4 16l5-5 3 3 2-2 6 6M15.5 9h.01"/></svg></span>
+              <span><strong>Images to PDF</strong><small>PNG, JPEG, WebP, TIFF & more</small></span>
+            </button>
+            <button class="tool-tab" type="button" role="tab" aria-selected="false" data-operation="resize">
+              <span class="tool-tab__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5M4 4l6 6M20 4l-6 6M20 20l-6-6M4 20l6-6"/></svg></span>
+              <span><strong>Resize PDF</strong><small>Set width and height</small></span>
+            </button>
+            <button class="tool-tab" type="button" role="tab" aria-selected="false" data-operation="standardize-width">
+              <span class="tool-tab__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h9v16H5zM14 7h5v13h-5M8 8h3M8 16h3M16 10h1M16 17h1"/></svg></span>
+              <span><strong>Standardize width</strong><small>Match every PDF page</small></span>
+            </button>
+            <button class="tool-tab" type="button" role="tab" aria-selected="false" data-operation="flatten">
+              <span class="tool-tab__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h10l4 4v12H5zM15 4v4h4M8 12h8M8 15h8M8 18h5"/><path d="M3.5 6.5h2M3.5 10h2"/></svg></span>
+              <span><strong>Flatten/Rasterize</strong><small>and Sanitize</small></span>
+            </button>
+            <button class="tool-tab" type="button" role="tab" aria-selected="false" data-operation="embed-link">
+              <span class="tool-tab__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 13a4 4 0 0 0 5.7 0l2.3-2.3A4 4 0 0 0 12.3 5L11 6.3M14 11a4 4 0 0 0-5.7 0L6 13.3A4 4 0 0 0 11.7 19l1.3-1.3"/></svg></span>
+              <span><strong>Embed links</strong><small>Draw clickable areas</small></span>
+            </button>
+            <button class="tool-tab" type="button" role="tab" aria-selected="false" data-operation="watermark">
+              <span class="tool-tab__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3.5h9l3 3v14H6zM9 15l6-6M10 9h.01M14 15h.01"/></svg></span>
+              <span><strong>Watermark</strong><small>PDFs &amp; images</small></span>
+            </button>
+            <button class="tool-tab" type="button" role="tab" aria-selected="false" data-operation="compress">
+              <span class="tool-tab__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 3v6H3M16 21v-6h5M3 9l6-6M21 15l-6 6"/></svg></span>
+              <span><strong>Compress PDF</strong><small>Reduce file size</small></span>
+            </button>
+            <button class="tool-tab" type="button" role="tab" aria-selected="false" data-operation="pdf-tiff">
+              <span class="tool-tab__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h10l4 4v12H5zM15 4v4h4M8 12h8M8 15h8"/></svg></span>
+              <span><strong>PDF to TIFF</strong><small>One multi-page image file</small></span>
+            </button>
+          </div>
+          <div class="engine-note">
+            <span class="engine-note__icon" aria-hidden="true">Py</span>
+            <p><strong>Powered by Python</strong><br><span data-offline-status>Browser first · automatic server fallback</span></p>
+          </div>
+        </aside>
+
+        <section class="workspace" aria-labelledby="workspace-title">
+          <section class="opened-files" data-opened-files hidden aria-labelledby="opened-title">
+            <div class="section-heading"><h2 id="opened-title">What would you like to do?</h2><button class="text-button" type="button" data-dismiss-opened>Dismiss</button></div>
+            <p data-opened-summary></p><ul class="opened-files__names" data-opened-names aria-label="Opened files"></ul><p class="option-note" data-opened-note></p><div class="opened-files__tasks" data-opened-tasks></div>
+          </section>
+          <div data-workspace-content>
+          <div class="workspace__heading">
+            <div>
+              <p class="eyebrow" data-step-label>Combine documents</p>
+              <h1 id="workspace-title" data-title>Merge PDF files</h1>
+              <p class="workspace__intro" data-description>Put several PDFs into one clean document. Arrange them in exactly the order you need.</p>
+            </div>
+            <span class="step-pill">1 of 2 · Add files</span>
+          </div>
+
+          <section class="operation-explainer" data-operation-explainer hidden aria-live="polite">
+            <div class="operation-explainer__icon" aria-hidden="true">i</div>
+            <div>
+              <h2 data-explainer-title></h2>
+              <p data-explainer-copy></p>
+              <ul data-explainer-points></ul>
+            </div>
+          </section>
+
+          <form class="tool-form" data-tool-form>
+            <input class="visually-hidden" id="file-input" name="files" type="file" accept="application/pdf,.pdf" multiple tabindex="-1" aria-hidden="true" data-file-input>
+            <div class="drop-zone" data-drop-zone>
+              <div class="drop-zone__art" aria-hidden="true">
+                <svg viewBox="0 0 80 80"><path class="drop-zone__page" d="M20 11h29l12 12v46H20z"/><path d="M49 11v13h12M31 43h18M40 34v18"/></svg>
+              </div>
+              <p class="drop-zone__title" data-drop-title>Drop your PDFs here</p>
+              <p class="drop-zone__copy" data-drop-copy>or choose files from your device</p>
+              <button class="choose-button" type="button" data-choose-files>Choose PDF files</button>
+              <p class="drop-zone__limits" data-limits>Up to 100 files · 250 MB total · 500 pages</p>
+            </div>
+
+            <div class="file-section" data-file-section hidden>
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Selected files</p>
+                  <h2 data-file-summary>0 files</h2>
+                </div>
+                <button class="text-button" type="button" data-add-more>+ Add more</button>
+              </div>
+              <p class="reorder-hint" data-reorder-hint>Drag files or use the arrow buttons to set their order.</p>
+              <ol class="file-list" data-file-list></ol>
+            </div>
+
+            <div class="options-card" data-options-card hidden>
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Fine tune</p>
+                  <h2>Options</h2>
+                </div>
+              </div>
+
+              <div class="option-grid" data-options="images-pdf" hidden>
+                <label class="field-group field-group--wide" for="image-quality">
+                  <span>Image quality <output data-quality-output>90%</output></span>
+                  <input id="image-quality" type="range" name="quality" min="45" max="95" value="90" data-quality>
+                  <small>Higher quality makes a larger PDF.</small>
+                </label>
+              </div>
+
+              <div class="option-grid" data-options="split" hidden>
+                <label class="field-group">
+                  <span>Each page as</span>
+                  <select name="split_format" data-split-format>
+                    <option value="pdf" selected>PDF</option>
+                    <option value="tiff">TIFF</option>
+                    <option value="png">PNG</option>
+                    <option value="jpg">JPEG</option>
+                  </select>
+                </label>
+                <label class="field-group" data-split-image-option hidden>
+                  <span>Image resolution</span>
+                  <select name="split_dpi">
+                    <option value="72">72 DPI · Compact</option>
+                    <option value="96">96 DPI · Screen</option>
+                    <option value="150" selected>150 DPI · Standard</option>
+                    <option value="200">200 DPI · Clear</option>
+                    <option value="300">300 DPI · Print</option>
+                  </select>
+                </label>
+                <label class="field-group field-group--wide" for="split-quality" data-split-jpeg-option hidden>
+                  <span>JPEG quality <output data-split-quality-output>88%</output></span>
+                  <input id="split-quality" type="range" name="split_quality" min="45" max="95" value="88" data-split-quality>
+                </label>
+                <p class="option-note field-group--wide">Every page is named in order and delivered together in one ZIP file.</p>
+              </div>
+
+              <div class="option-grid" data-options="resize" hidden>
+                <label class="field-group field-group--wide">
+                  <span>Page size</span>
+                  <select name="page_preset" data-page-preset>
+                    <option value="a4" selected>A4 · 210 × 297 mm</option>
+                    <option value="letter">US Letter · 8.5 × 11 in</option>
+                    <option value="legal">US Legal · 8.5 × 14 in</option>
+                    <option value="a3">A3 · 297 × 420 mm</option>
+                    <option value="custom">Custom dimensions</option>
+                  </select>
+                </label>
+                <label class="field-group">
+                  <span>Width</span>
+                  <input type="number" name="page_width" min="0.5" max="14400" step="0.01" value="210" data-page-width>
+                </label>
+                <label class="field-group">
+                  <span>Height</span>
+                  <input type="number" name="page_height" min="0.5" max="14400" step="0.01" value="297" data-page-height>
+                </label>
+                <label class="field-group field-group--wide">
+                  <span>Unit</span>
+                  <select name="page_unit" data-page-unit>
+                    <option value="mm" selected>Millimetres</option>
+                    <option value="cm">Centimetres</option>
+                    <option value="in">Inches</option>
+                    <option value="pt">Points</option>
+                  </select>
+                </label>
+                <p class="option-note field-group--wide">Content is fitted proportionally and centered. Extra space becomes blank margins on the sides or top and bottom.</p>
+              </div>
+
+              <div class="option-grid" data-options="standardize-width" hidden>
+                <div class="standardize-note field-group--wide">
+                  <strong>How page width is standardized</strong>
+                  <p>The widest page becomes the target. Narrower pages are resized proportionally until their widths match it, so their heights change naturally and nothing is stretched or cropped.</p>
+                </div>
+              </div>
+
+              <div class="option-grid" data-options="flatten" hidden>
+                <label class="field-group field-group--wide">
+                  <span>Raster resolution</span>
+                  <select name="flatten_dpi">
+                    <option value="150">150 DPI · Screen</option>
+                    <option value="300" selected>300 DPI · Print quality</option>
+                    <option value="600">600 DPI · Archive quality</option>
+                  </select>
+                </label>
+                <div class="flatten-note field-group--wide">
+                  <strong>What this removes</strong>
+                  <p>Embedded fonts, selectable text, editable objects, forms, links, annotations, attachments, scripts, and document metadata.</p>
+                  <strong>What this preserves</strong>
+                  <p>The visible page appearance, page proportions, and selected raster resolution. Pages are stored as lossless images and normalized to one common width.</p>
+                </div>
+                <p class="flatten-warning field-group--wide"><strong>Important:</strong> text will no longer be selectable or searchable after flattening. Higher DPI produces a sharper but larger PDF.</p>
+              </div>
+
+              <div class="option-grid" data-options="embed-link" hidden>
+                <label class="field-group">
+                  <span>Page</span>
+                  <select name="link_page" data-link-page>
+                    <option value="1">Page 1</option>
+                  </select>
+                </label>
+                <label class="field-group">
+                  <span>Destination URL</span>
+                  <input type="url" name="link_url" placeholder="https://example.com" inputmode="url" autocomplete="url" data-link-url>
+                </label>
+                <div class="link-editor field-group--wide">
+                  <div class="link-editor__heading">
+                    <div><strong>Draw a clickable area</strong><small>Drag a rectangle, enter its URL, then add it. Repeat for every area you need.</small></div>
+                    <span data-link-preview-state>Loading page…</span>
+                  </div>
+                  <div class="link-editor__stage">
+                    <div class="link-editor__canvas" data-link-canvas hidden>
+                      <img alt="Selected PDF page for drawing a link area" draggable="false" data-link-preview-image>
+                      <div class="link-editor__selection" data-link-selection hidden><span>Clickable area</span></div>
+                    </div>
+                  </div>
+                  <div class="link-editor__toolbar">
+                    <p class="link-editor__coordinates" data-link-coordinates>No new area selected yet.</p>
+                    <button class="link-editor__add" type="button" data-add-link-area>Add link area</button>
+                  </div>
+                </div>
+                <section class="link-areas field-group--wide" aria-label="Added link areas">
+                  <div class="link-areas__heading"><strong>Added areas</strong><span data-link-area-count>0 areas</span></div>
+                  <p class="link-areas__empty" data-link-area-empty>No areas added yet.</p>
+                  <ol class="link-areas__list" data-link-area-list></ol>
+                </section>
+                <input type="hidden" name="link_areas" value="[]" data-link-areas>
+                <p class="option-note field-group--wide">Every rectangle is invisible in the downloaded PDF. Add up to 100 areas across any pages; clicking or tapping one opens its URL.</p>
+              </div>
+
+              <div class="option-grid" data-options="watermark" hidden>
+                <label class="field-group field-group--wide"><span>Watermark type</span><select name="watermark_type" data-watermark-type><option value="text">Text</option><option value="image">Image / logo</option></select></label>
+                <label class="field-group field-group--wide" data-watermark-image-field hidden><span>Watermark image</span><input type="file" accept="image/png,image/jpeg,image/webp,image/tiff,image/gif,image/bmp,.png,.jpg,.jpeg,.webp,.tif,.tiff,.gif,.bmp" data-watermark-file><small>Transparent PNGs work well for logos. The first frame of GIF/TIFF files is used.</small></label>
+                <label class="field-group field-group--wide" data-watermark-image-field hidden><span>Image size (%)</span><input type="range" name="watermark_width" min="5" max="90" value="40" data-watermark-width><small>Fits within this percentage of each page or image.</small></label>
+                <label class="field-group field-group--wide" data-watermark-text-field>
+                  <span>Watermark text</span>
+                  <input type="text" name="watermark_text" maxlength="120" value="CONFIDENTIAL" placeholder="e.g. DRAFT or CONFIDENTIAL" data-watermark-text>
+                </label>
+                <label class="field-group" data-watermark-text-field><span>Text colour</span><input type="color" name="text_color" value="#292e38" data-watermark-colour></label>
+                <label class="field-group"><span>Watermark position</span><select name="watermark_position" data-watermark-position><option value="center">Center</option><option value="top">Top</option><option value="bottom">Bottom</option><option value="custom" disabled>Custom (preview)</option></select></label>
+                <input type="hidden" name="watermark_box" value="" data-watermark-box>
+                <fieldset class="field-group field-group--wide segmented-field">
+                  <legend>Direction</legend>
+                  <div class="segmented-control">
+                    <label><input type="radio" name="orientation" value="diagonal" checked data-watermark-direction><span>Diagonal</span></label>
+                    <label><input type="radio" name="orientation" value="horizontal" data-watermark-direction><span>Horizontal</span></label>
+                    <label><input type="radio" name="orientation" value="vertical" data-watermark-direction><span>Vertical</span></label>
+                  </div>
+                </fieldset>
+                <label class="field-group" for="watermark-opacity">
+                  <span>Transparency <output data-opacity-output>20%</output></span>
+                  <input id="watermark-opacity" type="range" name="opacity" min="5" max="90" value="20" data-opacity>
+                </label>
+                <label class="field-group" for="watermark-size" data-watermark-text-field>
+                  <span>Text size <output data-size-output>54</output></span>
+                  <input id="watermark-size" type="range" name="font_size" min="12" max="144" value="54" data-font-size><small>Points for PDFs; pixels for images.</small>
+                </label>
+                <div class="watermark-preview field-group--wide" data-watermark-preview>
+                  <div class="watermark-preview__heading"><span>First-file preview</span><small data-preview-state>Loading preview…</small></div>
+                  <div class="watermark-preview__page">
+                    <div class="watermark-preview__canvas" data-watermark-canvas>
+                      <img alt="Preview of the first file" data-preview-image hidden draggable="false">
+                      <div class="watermark-preview__selection" data-watermark-selection role="group" aria-label="Watermark placement" hidden>
+                        <span class="watermark-preview__text" data-preview-watermark>CONFIDENTIAL</span>
+                        <img class="watermark-preview__logo" alt="Watermark image preview" data-preview-logo hidden draggable="false">
+                        <button class="watermark-preview__move" type="button" data-watermark-move aria-label="Move watermark" aria-describedby="watermark-preview-help"></button>
+                        <button class="watermark-preview__resize" type="button" data-watermark-resize aria-label="Resize watermark" aria-describedby="watermark-preview-help"></button>
+                      </div>
+                    </div>
+                  </div>
+                  <p id="watermark-preview-help" class="option-note">Drag the watermark to move it. Drag its corner to resize. Arrow keys move or resize the focused control; hold Shift for larger steps. Placement applies proportionally to every page and image.</p>
+                </div>
+              </div>
+
+              <div class="option-grid" data-options="compress" hidden>
+                <fieldset class="field-group field-group--wide choice-field">
+                  <legend>Compression level</legend>
+                  <label><input type="radio" name="strength" value="light"><span><strong>Light</strong><small>Sharper images, gentle reduction</small></span></label>
+                  <label><input type="radio" name="strength" value="balanced" checked><span><strong>Balanced</strong><small>Best for most documents</small></span></label>
+                  <label><input type="radio" name="strength" value="strong"><span><strong>Strong</strong><small>Smallest size, softer images</small></span></label>
+                </fieldset>
+              </div>
+
+              <div class="option-grid" data-options="pdf-tiff" hidden>
+                <label class="field-group">
+                  <span>Resolution</span>
+                  <select name="dpi">
+                    <option value="72">72 DPI · Compact</option>
+                    <option value="96">96 DPI · Screen</option>
+                    <option value="150" selected>150 DPI · Standard</option>
+                    <option value="200">200 DPI · Clear</option>
+                    <option value="300">300 DPI · Print</option>
+                  </select>
+                </label>
+                <label class="field-group">
+                  <span>TIFF compression</span>
+                  <select name="tiff_compression" data-tiff-compression>
+                    <option value="" selected disabled>Select compression…</option>
+                    <option value="tiff_lzw">LZW · Lossless · Best for text & line art</option>
+                    <option value="tiff_deflate">Deflate · Lossless · Good general alternative</option>
+                    <option value="jpeg">JPEG · Lossy · Best for photos & scans</option>
+                  </select>
+                </label>
+                <label class="field-group field-group--wide">
+                  <span>Colour</span>
+                  <select name="tiff_color">
+                    <option value="color" selected>Colour</option>
+                    <option value="grayscale">Grayscale · Usually smaller</option>
+                  </select>
+                </label>
+                <div class="tiff-codec-guide field-group--wide" aria-label="TIFF compression guide">
+                  <p><strong>LZW</strong><span>Lossless. Best for text, forms, diagrams, line art and mostly white pages.</span></p>
+                  <p><strong>Deflate</strong><span>Lossless. A good general alternative that can beat LZW on some documents.</span></p>
+                  <p><strong>JPEG</strong><span>Lossy. Usually much smaller for photos, scans, gradients and detailed imagery.</span></p>
+                </div>
+                <p class="tiff-size-note field-group--wide"><strong>Why can TIFF be large?</strong> TIFF stores rendered pixels instead of the PDF’s compact text and vector instructions. Compression, grayscale and lower DPI can reduce the result considerably.</p>
+              </div>
+
+              <label class="field-group field-group--wide output-name">
+                <span>Output filename</span>
+                <div class="filename-input"><input type="text" name="output_name" maxlength="80" value="merged" data-output-name><span data-output-extension>.pdf</span></div>
+              </label>
+            </div>
+
+            <div class="form-status" role="status" aria-live="polite" data-status></div>
+
+            <div class="form-actions" data-actions hidden>
+              <button class="reset-button" type="button" data-reset>Start over</button>
+              <button class="process-button" type="submit" data-process>
+                <span data-process-label>Merge PDFs</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5"/></svg>
+              </button>
+            </div>
+          </form>
+
+          <section class="result-card" data-result hidden aria-labelledby="result-title">
+            <div class="result-card__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 12 4 4 8-9"/></svg></div>
+            <div class="result-card__copy">
+              <p class="eyebrow">Ready</p>
+              <h2 id="result-title">Your file is finished</h2>
+              <p data-result-meta></p>
+            </div>
+            <a class="download-button" href="#" download data-download>Download</a>
+          </section>
+          </div>
+        </section>
+      </main>
+
+      <footer class="studio-footer">
+        <p class="studio-footer__processing" data-hosted-note hidden>Files stay on your device when browser processing is supported and estimated memory is sufficient. Otherwise they are uploaded for server processing (4 MB total maximum). Larger tasks can use the desktop app.</p>
+        <p>Built with Python, pypdf, Pillow, PDF.js and PDFium.</p>
+        <p><a href="https://nithi.land/" target="_blank" rel="noopener noreferrer">nithi.land</a> · <a href="https://nithi.land/privacy/pdfimage/" target="_blank" rel="noopener noreferrer">Privacy policy</a> · <a href="https://github.com/nithilanvivek/pdf-image-studio" target="_blank" rel="noopener noreferrer">Source code</a> · Your files are processed only for this task.</p>
+      </footer>
+    </div>
+    <input class="visually-hidden" type="file" accept="application/pdf,image/png,image/jpeg,image/webp,image/tiff,image/gif,image/bmp,.pdf,.png,.jpg,.jpeg,.webp,.tif,.tiff,.gif,.bmp" multiple data-open-input aria-label="Open PDFs and images">
+    <dialog class="install-dialog" data-install-dialog><h2>Install PDF + Image Studio</h2><p data-install-message>Install this studio as an app on your device.</p><button class="header-button header-button--install" type="button" data-confirm-install hidden>Install app</button><p>Install just this studio as a separate app.</p><ul><li><strong>Chrome or Edge:</strong> use Install app in the address bar or browser menu.</li><li><strong>Safari on Mac:</strong> choose File → Add to Dock.</li><li><strong>iPhone or iPad:</strong> open Share → Add to Home Screen, then enable Open as Web App if offered.</li><li><strong>Android:</strong> use Install app or Add to Home screen in the browser menu.</li></ul><p>Opening files from your file manager is available when your browser and operating system support app file handlers. Open files and drag-and-drop are always available inside the app.</p><form method="dialog"><button class="header-button">Close</button></form></dialog>
+    <script src="/tools/filestudio/file-studio-tools.js"></script>
+    <script src="/tools/filestudio/pdf-processing.js"></script>
+    <script src="/tools/filestudio/pdf-tool.js"></script>
+    <script src="/tools/filestudio/pwa.js"></script>
+    <script src="/src/tab-title.js"></script>
+    <script src="/src/devtools-greeting.js"></script>
+  </body>
+</html>

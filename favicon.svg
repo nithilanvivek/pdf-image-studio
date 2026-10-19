@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="nithi.land">
+  <rect width="64" height="64" rx="15" fill="#0b0d10"/>
+  <rect x="2" y="2" width="60" height="60" rx="13" fill="none" stroke="#d6a14a" stroke-opacity=".42" stroke-width="2"/>
+  <text x="32" y="45" fill="#e1ad57" font-family="Georgia, 'Times New Roman', serif" font-size="47" font-weight="700" text-anchor="middle">n</text>
+</svg>

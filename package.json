@@ -1,0 +1,15 @@
+{
+  "name": "pdf-image-studio",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start": "node scripts/serve-static.mjs",
+    "build:file-studio-pwa": "node scripts/sync-pdf-browser-engine.mjs && node scripts/generate-file-studio-pwa.mjs",
+    "check": "node scripts/sync-pdf-browser-engine.mjs --check && node scripts/generate-file-studio-pwa.mjs --check",
+    "test": "npm run check && playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.59.1"
+  }
+}
